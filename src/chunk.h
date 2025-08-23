@@ -37,7 +37,7 @@ public:
         pair = ""; // Resets pair and current each time the pair is called. Used to avoid appending a long string since it is shared between functions.
         current = 1;
         std::string line;
-        std::ifstream read("flip.txt");
+        std::ifstream read("../bitFiles/flip.txt");
         if (read.is_open()) // Just ensures that the file is open.
         {
             while (std::getline(read, line)) // Read helps extract the binary sequence from the line and store it into line. Does so until it finds a delimination character like \n. Putting it into a while loop allows it to continue until it reaches the end of the file
@@ -61,8 +61,8 @@ public:
     void editFile()
     {
         std::string line;
-        std::ifstream read("binSeq.txt"); // Reading the given file, and writing it to separate file.
-        std::ofstream write("temp.txt");
+        std::ifstream read("../bitFiles/binSeq.txt"); // Reading the given file, and writing it to separate file.
+        std::ofstream write("../bitFiles/temp.txt");
         if (read.is_open() && write.is_open()) // Checks if both files are open
         {
             while (std::getline(read, line))
@@ -84,9 +84,9 @@ public:
             }
             read.close();
             write.close();
-            std::remove("binSeq.txt"); // Once closed, we delete our the binSeq.txt
-            std::rename("temp.txt", "binSeq.txt"); // Rename the temp as our bitSeq.txt
-            std::ofstream write("temp.txt"); // Create temp.txt again for next object/call
+            std::remove("../bitFiles/binSeq.txt"); // Once closed, we delete our the binSeq.txt
+            std::rename("../bitFiles/temp.txt", "../bitFiles/binSeq.txt"); // Rename the temp as our bitSeq.txt
+            std::ofstream write("../bitFiles/temp.txt"); // Create temp.txt again for next object/call
         }
         else {std::cout << "Can't open file" << std::endl;}
     }
@@ -96,7 +96,7 @@ public:
         copy(); // Creates a copy of binSeq.txt before it is edited
         editFile(); // Replaces the bits and inserts the spaces
         std::string line, line2;
-        std::ifstream read("binSeq.txt");
+        std::ifstream read("../bitFiles/binSeq.txt");
         if(read.is_open())
         {
             while(std::getline(read,line))
@@ -124,8 +124,8 @@ public:
     void copy() // See line 94
     {
         std::string line;
-        std::ifstream read("binSeq.txt");
-        std::ofstream write("backup.txt");
+        std::ifstream read("../bitFiles/binSeq.txt");
+        std::ofstream write("../bitFiles/backup.txt");
         if (read.is_open() && write.is_open())
         {
             while (std::getline(read, line))
@@ -140,9 +140,9 @@ public:
 
     void replace() // See line 120
     {
-        std::remove("binSeq.txt");
-        std::rename("backup.txt", "binSeq.txt");
-        std::ofstream write("backup.txt");
+        std::remove("../bitFiles/binSeq.txt");
+        std::rename("../bitFiles/backup.txt", "../bitFiles/binSeq.txt");
+        std::ofstream write("../bitFiles/backup.txt");
     }
 };
 //////////////////////////////////////////////////
