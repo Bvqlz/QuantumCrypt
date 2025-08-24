@@ -10,23 +10,6 @@ This project implements a cipher system that:
 - Converts encrypted binary sequences to decimal output
 - Supports different modulo operations (128 and 64)
 
-## Project Structure
-
-```
-Quantum/
-├── CMakeLists.txt          # CMake build configuration
-├── main.cpp                # Main program entry point
-├── .gitignore              # Git ignore file
-├── src/
-│   └── chunk.h             # Header file containing cipher implementation
-└── bitFiles/               # Directory containing cipher data files
-    ├── flip.txt            # Bit-pair substitution lookup table
-    ├── binSeq.txt          # Input binary sequences
-    ├── binAlt.txt          # Alternative binary sequences
-    ├── backup.txt          # Temporary backup file
-    └── temp.txt            # Temporary processing file
-```
-
 ## Prerequisites
 
 - **C++ Compiler**: Supporting C++20 standard
